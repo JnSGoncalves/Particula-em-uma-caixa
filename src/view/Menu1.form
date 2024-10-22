@@ -141,7 +141,6 @@
     <Component class="javax.swing.JButton" name="buProton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confinando um el&#xe9;tron"/>
-        <Property name="actionCommand" type="java.lang.String" value="Confinando um el&#xe9;tron"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textLargura">
