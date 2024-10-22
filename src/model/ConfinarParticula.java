@@ -1,6 +1,9 @@
 package model;
 
 import java.text.DecimalFormat;
+import java.util.Scanner;
+
+
 
 public class ConfinarParticula {
     private double hJaule = 6.62607015 * Math.pow(10, -34); // J.s
@@ -107,43 +110,79 @@ public class ConfinarParticula {
         double lambdaFoton = c / frequencia; // λ = c / f
         return df.format(lambdaFoton);
     }
+    
+    // Método que calcula a probabilidade de encontrar a partícula entre a e b
+    public double calcularProbabilidade(double a, double b, double n) {
+        double probabilidade = (1.0 / l) * ((b - a) 
+                            - (l / (2 * n * Math.PI)) * 
+                            (Math.sin((2 * n * Math.PI * b) / l) 
+                            - Math.sin((2 * n * Math.PI * a) / l)));
+        return probabilidade * 100; // Multiplica por 100 para porcentagem
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Entrada de dados
+        System.out.print("Digite a largura da caixa (L) em metros: ");
+        double L = scanner.nextDouble();
+        
+        System.out.print("Digite o nível inicial da partícula (ni): ");
+        double nInicial = scanner.nextDouble();
+        
+        System.out.print("Digite o nível final da partícula (nf): ");
+        double nFinal = scanner.nextDouble();
+        
+        System.out.print("Digite o valor de a em metros: ");
+        double a = scanner.nextDouble();
+        
+        System.out.print("Digite o valor de b em metros: ");
+        double b = scanner.nextDouble();
 
-    // Teste
-//    public static void main(String[] args) {
-//        // Exemplo de uso
-//        ConfinarParticula p = new ConfinarParticula();
-//        
-//        // Função de onda
-//        String funcaoOnda = p.funcaoOnda(4, 7);
-//        System.out.println("Função de onda: " + funcaoOnda);
-//        
-//        // Energia em joules e eV
-//        String energiaJ = p.energiaJ(2, 9.11e-31, 1.0); // Exemplo com elétron
-//        System.out.println("Energia em Joules: " + energiaJ);
-//
-//        String energiaEv = p.energiaEv(2, 9.11e-31, 1.0); // Exemplo com elétron
-//        System.out.println("Energia em eV: " + energiaEv);
-//
-//        // Velocidade
-//        String velocidade = p.velocidade(2, 1.0, 9.11e-31);
-//        System.out.println("Velocidade: " + velocidade);
-//
-//        // Comprimento de onda de De Broglie
-//        String deBroglie = p.comprimentoDeBroglie(2, 1.0);
-//        System.out.println("Comprimento de Onda de De Broglie: " + deBroglie);
-//
-//        // Energia do fóton
-//        String energiaFoton = p.energiaFoton(2, 3, 9.11e-31, 1.0);
-//        System.out.println("Energia do Fóton: " + energiaFoton);
-//
-//        // Frequência do fóton
-//        double energiaF = Double.parseDouble(p.energiaFoton(2, 3, 9.11e-31, 1.0).replace("E", "E"));
-//        String frequencia = p.frequenciaFoton(energiaF);
-//        System.out.println("Frequência do Fóton: " + frequencia);
-//
-//        // Comprimento de onda do fóton
-//        double freq = Double.parseDouble(frequencia.replace("E", "E"));
-//        String lambdaFoton = p.comprimentoDeOndaFoton(freq);
-//        System.out.println("Comprimento de Onda do Fóton: " + lambdaFoton);
-//    }
+        // Criando um objeto da classe ConfinarParticula
+        ConfinarParticula particula = new ConfinarParticula
+        (nInicial, L, 9.11e-31, nFinal); // usando massa do elétron
+
+        // Cálculos e saídas
+        System.out.println("\nFunção de Onda:");
+        System.out.println(particula.funcaoOnda(L, nInicial));
+
+        System.out.println("\nEnergia em Joules (nível inicial):");
+        System.out.println(particula.energiaJ(nInicial, 9.11e-31, L));
+
+        System.out.println("\nEnergia em eV (nível inicial):");
+        System.out.println(particula.energiaEv(nInicial, 9.11e-31, L));
+
+        System.out.println("\nVelocidade da partícula (nível inicial):");
+        System.out.println(particula.velocidade(nInicial, L, 9.11e-31));
+
+        System.out.println("\nComprimento de Onda de De Broglie"
+                            + "(nível inicial):");
+        System.out.println(particula.comprimentoDeBroglie(nInicial, L));
+
+        System.out.println("\nEnergia do Fóton (de ni para nf):");
+        System.out.println(particula.energiaFoton
+                          (nInicial, nFinal, 9.11e-31, L));
+
+        System.out.println("\nFrequência do Fóton:");
+        double energiaFoton = Double.parseDouble
+        (particula.energiaFoton(nInicial, nFinal, 9.11e-31, L).replace("E", "E"));
+        System.out.println(particula.frequenciaFoton(energiaFoton));
+
+        System.out.println("\nComprimento de Onda do Fóton:");
+        double frequencia = Double.parseDouble(particula.frequenciaFoton(
+                energiaFoton).replace("E", "E"));
+        System.out.println(particula.comprimentoDeOndaFoton(frequencia));
+
+        // Cálculo da probabilidade
+        double probabilidade = particula.calcularProbabilidade(a, b, nInicial);
+        System.out.println("\nProbabilidade de encontrar a partícula entre " + 
+                           a + " e " + b + " metros:");
+        System.out.println(probabilidade + " %");
+
+        // Fechando o scanner
+        scanner.close();
+    }
+    
+    
 }
