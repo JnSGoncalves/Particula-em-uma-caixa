@@ -1,7 +1,6 @@
 package controller;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -10,6 +9,7 @@ import model.FuncaoOnda;
 import model.Pontos;
 import model.PontosPixel;
 import view.JanelaSimulacao;
+import view.OndaPanel;
 
 public class SimulacaoController {
     private final JanelaSimulacao view;
@@ -19,6 +19,8 @@ public class SimulacaoController {
     private final int numPontos;
     private Timer timer;
     private double tempo;
+    
+    private final int fps = 120;
 
     public SimulacaoController(JanelaSimulacao view) {
         this.view = view;
@@ -30,11 +32,11 @@ public class SimulacaoController {
     }
   
     public void iniciarAnimacao() {
-        timer = new Timer(1, new ActionListener() {
+        timer = new Timer(1000 / fps, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 animacaoOnda();
-                tempo += 0.0001;
+                tempo += 0.001;
             }
         });
         timer.start(); // Inicia o timer
@@ -63,14 +65,13 @@ public class SimulacaoController {
         int[] pontosX = pontosPixel.getX();
         int[] pontosY= pontosPixel.getY();
         
-        Graphics g = panel.getGraphics();
-        g.setColor(Color.RED);
-        
-        panel.repaint();
-        
-        for(int i = 0; i < pontosX.length - 1; i++){
-            g.drawLine(pontosX[i], pontosY[i], pontosX[i + 1], pontosY[i] + 1);
+        Point[] pontos = new Point[pontosX.length];
+        for(int i = 0; i < pontosX.length; i++){
+            pontos[i] = new Point(pontosX[i], pontosY[i]);
         }
+        
+        ((OndaPanel) panel).limpar();
+        ((OndaPanel) panel).adicionarLinha(pontos);
     }
     
     public PontosPixel convertToPixels(Pontos pontos, JPanel panel) {

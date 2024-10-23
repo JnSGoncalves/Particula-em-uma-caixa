@@ -54,11 +54,11 @@ public class JanelaSimulacao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jpOnda5 = new javax.swing.JPanel();
-        jpOnda4 = new javax.swing.JPanel();
-        jpOnda3 = new javax.swing.JPanel();
-        jpOnda2 = new javax.swing.JPanel();
-        jpOnda1 = new javax.swing.JPanel();
+        jpOnda5 = new OndaPanel();
+        jpOnda4 = new OndaPanel();
+        jpOnda3 = new OndaPanel();
+        jpOnda2 = new OndaPanel();
+        jpOnda1 = new OndaPanel();
         lblN5 = new javax.swing.JLabel();
         lblN4 = new javax.swing.JLabel();
         lblN2 = new javax.swing.JLabel();
@@ -205,7 +205,7 @@ public class JanelaSimulacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
-    private SimulacaoController c;
+    private final SimulacaoController c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
