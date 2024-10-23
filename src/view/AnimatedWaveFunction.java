@@ -1,4 +1,4 @@
-package simulation.main.teste;
+package view;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -17,9 +17,9 @@ public class AnimatedWaveFunction extends JFrame {
     private static final double HBAR = 1.055e-34; // Constante de Planck reduzida
     private static final double MASS = 9.11e-31;  // Massa do elétron
     private static final double L = 1e-9;          // Comprimento da caixa (1 nm)
-    private static final int N = 3;                // Número quântico
-    private static final int FRAME_RATE = 60;      // Taxa de quadros (FPS)
-    private static final int POINTS = 100;         // Número de pontos no gráfico
+    private static final int N = 5;                // Número quântico
+    private static final int FRAME_RATE = 30;      // Taxa de quadros (FPS)
+    private static final int POINTS = 50;         // Número de pontos no gráfico
     private static final double MAX_X = L;         // Limite da posição x
 
     private double time = 0.0; // Tempo inicial
@@ -35,6 +35,9 @@ public class AnimatedWaveFunction extends JFrame {
         chartPanel.setMaximumSize(new Dimension(800, 600)); // Tamanho máximo fixo
         chartPanel.setMinimumSize(new Dimension(800, 600)); // Tamanho mínimo fixo
         setContentPane(chartPanel);
+
+        chartPanel.setDomainZoomable(false); // Desabilita zoom no eixo X
+        chartPanel.setRangeZoomable(false);
         
         // Timer para atualizar a animação
         Timer timer = new Timer(1000 / FRAME_RATE, e -> {
@@ -56,8 +59,8 @@ public class AnimatedWaveFunction extends JFrame {
         XYSeriesCollection dataset = new XYSeriesCollection(series);
         JFreeChart chart = ChartFactory.createXYLineChart(
                 "Animação da Função de Onda",
-                "Posição (x)",
-                "Amplitude",
+                null,
+                null,
                 dataset,
                 PlotOrientation.VERTICAL,
                 true,
@@ -67,8 +70,13 @@ public class AnimatedWaveFunction extends JFrame {
 
         // Configurando a escala fixa dos eixos
         XYPlot plot = chart.getXYPlot();
-        NumberAxis xAxis = (NumberAxis) plot.getDomainAxis();
-        NumberAxis yAxis = (NumberAxis) plot.getRangeAxis();
+        NumberAxis xAxis = (NumberAxis) chart.getXYPlot().getDomainAxis();
+        xAxis.setTickLabelsVisible(false); // Remove os números da escala do eixo X
+
+        NumberAxis yAxis = (NumberAxis) chart.getXYPlot().getRangeAxis();
+        yAxis.setTickLabelsVisible(false);
+
+        plot.setBackgroundPaint(null);
         
         // Definindo limites fixos para o eixo X
         xAxis.setRange(0, MAX_X); // Limite do eixo X de 0 a L
@@ -80,6 +88,9 @@ public class AnimatedWaveFunction extends JFrame {
     }
 
     private void updateWaveFunction() {
+        series.setNotify(false); // Desabilita as notificações enquanto os dados são atualizados
+        series.clear();          // Limpa os dados anteriores
+
         double[] newValues = new double[POINTS + 1]; // Armazena os novos valores da função de onda
 
         // Calcula os novos valores

@@ -1,10 +1,13 @@
 package simulation.main;
 
-import javax.swing.SwingUtilities;
-import simulation.main.teste.AnimatedWaveFunction;
+import view.JanelaSimulacao;
 
 public class ParticulaEmUmaCaixa {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(AnimatedWaveFunction::new);
+        JanelaSimulacao simulacao = new JanelaSimulacao();
+        simulacao.setVisible(true);
+        
+//        SwingUtilities.invokeLater(AnimatedWaveFunction::new); // Teste janela de animação
+            
     }
 }
