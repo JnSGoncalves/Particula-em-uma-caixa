@@ -20,7 +20,7 @@ public class SimulacaoController {
     private Timer timer;
     private double tempo;
     
-    private final int fps = 120;
+    private final int fps = 60;
 
     public SimulacaoController(JanelaSimulacao view) {
         this.view = view;
@@ -36,7 +36,7 @@ public class SimulacaoController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 animacaoOnda();
-                tempo += 0.001;
+                tempo += 3e-16;
             }
         });
         timer.start(); // Inicia o timer
