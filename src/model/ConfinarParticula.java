@@ -5,10 +5,13 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Scanner;
 
+
 public class ConfinarParticula {
     private double hJaule = 6.62607015 * Math.pow(10, -34); // J.s
     private double hEv = 4.1356677 * Math.pow(10, -15);   // eV.s
-    private double c = 3.0 * Math.pow(10, 8);               // Velocidade da luz (m/s)
+    private double c = 3.0 * Math.pow(10, 8);        // Velocidade da luz (m/s)
+    private double veloEletron =  2.187 * Math.pow(10, 6);
+    private double veloProton = 9.57 * Math.pow(10, 3);
     private DecimalFormat df;
     private double nInicial, l, m, nFinal;
 
@@ -62,29 +65,30 @@ public class ConfinarParticula {
     }
 
     // Método que calcula a velocidade da partícula no nível quântico
-    public String velocidade(double n, double l, double m) {
-        double p = (n * hJaule) / (2 * l); // Momento p_n = n h / 2L
-        double v = p / m;                  // v_n = p_n / m
+    public String velocidadeProton(double e, double m) {
+        double v = Math.sqrt((2 * e)/m);
         return df.format(v);
     }
+    
 
     // Método que calcula o comprimento de onda de De Broglie
-    public String comprimentoDeBroglie(double n, double l) {
-        double p = (n * hJaule) / (2 * l); // Momento p_n
+    public String comprimentoDeBroglie(double m, double velocidade) {
+        double lambda = hJaule / (m * velocidade);
         // Comprimento de onda de De Broglie λ_n = h / p_n
-        double lambda = hJaule / p;        
+              
         return df.format(lambda);
     }
 
     // Método que calcula a energia do fóton na transição entre dois níveis
-    public String energiaFoton(double ni, double nf, double m, double l) {
-        double ei = (Math.pow(ni, 2) * Math.pow(hJaule, 2)) / 
-                    (8 * m * Math.pow(l, 2)); // Energia inicial
-        double ef = (Math.pow(nf, 2) * Math.pow(hJaule, 2)) / 
-                    (8 * m * Math.pow(l, 2)); // Energia final
-        double efoton = Math.abs(ef - ei);   // Energia do fóton emitido/absorvido
-        return df.format(efoton);
+    public String energiaFoton(double ef, double ei) {
+        double eFoton = Math.abs(ef - ei); // Energia do fóton emitido/absorvido
+        double lambdaFoton = hJaule * c / eFoton;
+        return df.format(eFoton);
     }
+    
+    // Método que calcula a energia do fóton na transição entre dois níveis
+    
+
 
     // Método que calcula a frequência do fóton
     public String frequenciaFoton(double efoton) {
@@ -93,8 +97,8 @@ public class ConfinarParticula {
     }
 
     // Método que calcula o comprimento de onda do fóton
-    public String comprimentoDeOndaFoton(double frequencia) {
-        double lambdaFoton = c / frequencia; // λ = c / f
+    public String comprimentoDeOndaFoton(double efoton) {
+        double lambdaFoton = (hEv * c) / efoton ; // λ = c / f
         return df.format(lambdaFoton);
     }
 
@@ -107,6 +111,8 @@ public class ConfinarParticula {
         return probabilidade * 100; // Multiplica por 100 para porcentagem
     }
 
+    
+ 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -130,7 +136,8 @@ public class ConfinarParticula {
         double massaProton = 1.67e-27;
 
         // Criando um objeto da classe ConfinarParticula
-        ConfinarParticula particula = new ConfinarParticula(nInicial, L, massaProton, nFinal);
+        ConfinarParticula particula = new ConfinarParticula
+                                     (nInicial, L, massaProton, nFinal);
 
         // Cálculos e saídas
         System.out.println("\nFunção de Onda (nível 1):");
@@ -144,34 +151,72 @@ public class ConfinarParticula {
 
         System.out.println("\nEnergia em eV (nível inicial):");
         System.out.println(particula.energiaEv(nInicial, massaProton, L));
+        double energiaInicial = Double.parseDouble
+                            (particula.energiaJ(nInicial, massaProton, L));
+        double energiaInicialEv = Double.parseDouble
+                            (particula.energiaEv(nInicial, massaProton, L));
 
         System.out.println("\nEnergia em Joules (nível final):");
         System.out.println(particula.energiaJ(nFinal, massaProton, L));
 
         System.out.println("\nEnergia em eV (nível final):");
         System.out.println(particula.energiaEv(nFinal, massaProton, L));
+        double energiaFinal = Double.parseDouble
+                            (particula.energiaJ(nFinal, massaProton, L));
+        double energiaFinalEv = Double.parseDouble
+                            (particula.energiaEv(nFinal, massaProton, L));
 
         System.out.println("\nEnergia do Fóton (de ni para nf):");
-        String energiaFotonStr = particula.energiaFoton(nInicial, nFinal, massaProton, L);
+        String energiaFotonStr = particula.energiaFoton
+                                (energiaFinalEv, energiaInicialEv);
         System.out.println(energiaFotonStr);
+        double efoton = Double.parseDouble(particula.energiaFoton
+                                (energiaFinalEv, energiaInicialEv));
+        
 
         // Convertendo energia do fóton para double
-        double energiaFoton = Double.parseDouble(energiaFotonStr.replace(",", ""));
+        double energiaFoton = Double.parseDouble
+                              (energiaFotonStr.replace(",", ""));
 
         System.out.println("\nFrequência do Fóton:");
         String frequenciaFotonStr = particula.frequenciaFoton(energiaFoton);
         System.out.println(frequenciaFotonStr);
+        double frequencia = Double.parseDouble(
+                            particula.frequenciaFoton(energiaFoton));
+        
+        System.out.println("Velocidade do próton " + "n1: ") ;
+        String veloN1 = particula.velocidadeProton(energiaInicial, massaProton);
+        System.out.println(veloN1 + " [m]");
+        
+        System.out.println("Velocidade do próton " + "n2: ") ;
+        String veloN2 = particula.velocidadeProton(energiaFinal, massaProton);
+        System.out.println(veloN2 + " [m]");
 
-        double frequencia = Double.parseDouble(frequenciaFotonStr.replace(",", ""));
+        double veloInicial = Double.parseDouble(veloN1);
+        double veloFinal = Double.parseDouble(veloN2);
 
-        System.out.println("\nComprimento de Onda do Fóton:");
-        System.out.println(particula.comprimentoDeOndaFoton(frequencia));
+        System.out.println("\nComprimento de Onda " + "n Inicial:");
+        System.out.println(particula.comprimentoDeBroglie
+                           (massaProton,veloInicial));
+        
+        System.out.println("\nComprimento de Onda " + "N final:");
+        System.out.println(particula.comprimentoDeBroglie
+                          (massaProton, veloFinal));
+        
+        System.out.println("\nComprimento de Onda do Fóton: ");
+        System.out.println(particula.comprimentoDeOndaFoton(efoton));
+        
+        
+                          
 
         // Cálculo da probabilidade
-        double probabilidade = particula.calcularProbabilidade(a, b, nInicial);
+        double probabilidadeNInicial = particula.calcularProbabilidade(a, b, nInicial);
+        System.out.println("\nProbabilidade de encontrar a partícula entre "
+                          + "" + a + " e " + b + " metros:");
+        System.out.println(probabilidadeNInicial + " %");
+        double probabilidadeNFinal = particula.calcularProbabilidade(a, b, nFinal);
         System.out.println("\nProbabilidade de encontrar a partícula entre " + a + " e " + b + " metros:");
-        System.out.println(probabilidade + " %");
-
+        System.out.println(probabilidadeNFinal + " %");
         // Fechando o scanner
         scanner.close();
     }
