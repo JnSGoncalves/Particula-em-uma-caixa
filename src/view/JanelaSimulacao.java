@@ -69,6 +69,10 @@ public class JanelaSimulacao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulação");
+        setMaximumSize(new java.awt.Dimension(810, 750));
+        setMinimumSize(new java.awt.Dimension(810, 750));
+        setPreferredSize(new java.awt.Dimension(810, 750));
+        setSize(new java.awt.Dimension(810, 750));
 
         jpOnda5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpOnda5.setToolTipText("");
@@ -125,7 +129,7 @@ public class JanelaSimulacao extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(202, 202, 202)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jpOnda5, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jpOnda4, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,11 +144,11 @@ public class JanelaSimulacao extends javax.swing.JFrame {
                             .addComponent(lblN2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblN1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
+                        .addGap(327, 327, 327)
                         .addComponent(jButton1)
                         .addGap(52, 52, 52)
                         .addComponent(jButton2)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,12 +191,12 @@ public class JanelaSimulacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jpOnda5.getAccessibleContext().setAccessibleName("");
 
-        pack();
+        setSize(new java.awt.Dimension(824, 757));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

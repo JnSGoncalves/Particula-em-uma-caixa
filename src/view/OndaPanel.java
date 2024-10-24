@@ -7,10 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 
-/**
- *
- * @author jnsil
- */
 public class OndaPanel extends JPanel{
     private final List<Point[]> linhas = new ArrayList<>();
     

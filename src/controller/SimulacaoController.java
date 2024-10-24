@@ -10,6 +10,7 @@ import model.Pontos;
 import model.PontosPixel;
 import view.JanelaSimulacao;
 import view.OndaPanel;
+import java.util.Random;
 
 public class SimulacaoController {
     private final JanelaSimulacao view;
@@ -17,7 +18,8 @@ public class SimulacaoController {
     private int ondaAtual;
     private final double L;
     private final int numPontos;
-    private Timer timer;
+    private Timer timerAnimacao;
+    private Timer timerFoton;
     private double tempo;
     
     private final int fps = 60;
@@ -32,29 +34,33 @@ public class SimulacaoController {
     }
   
     public void iniciarAnimacao() {
-        timer = new Timer(1000 / fps, new ActionListener() {
+        timerAnimacao = new Timer(1000 / fps, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 animacaoOnda();
-                tempo += 3e-16;
+                tempo += 2e-16;
             }
         });
-        timer.start(); // Inicia o timer
+        timerAnimacao.start(); // Inicia o timer
+        
+        timerFoton = new Timer(2000, new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                Random random = new Random();
+                float ver = random.nextFloat();
+                if(ver > 0.5){
+                    trocarN();
+                }
+            }
+        });
+        timerFoton.start();
     }
     
     public void animacaoOnda(){
         Pontos pontos;
         pontos = funcao.calcularFuncaoOnda(ondaAtual, tempo);
         PontosPixel pontosPixel;
-        JPanel panel = null;
-        
-        switch (ondaAtual) {
-            case 1 -> panel = view.getJpOnda1();
-            case 2 -> panel = view.getJpOnda2();
-            case 3 -> panel = view.getJpOnda3();
-            case 4 -> panel = view.getJpOnda4();
-            case 5 -> panel = view.getJpOnda5();
-        }
+        JPanel panel = getPanelAtual();
         
         pontosPixel = convertToPixels(pontos, panel);
         
@@ -98,18 +104,44 @@ public class SimulacaoController {
             // Mapeia as coordenadas x para a largura do painel
             pontosXPixel[i] = (int) Math.round((pontosX[i] - xMin) / (xMax - xMin) * width);
             // Mapeia as coordenadas y para a altura do painel, centralizando o eixo y = 0 no meio do painel
-            pontosYPixel[i] = (int) (30 + Math.round(height / 2 - ((pontosY[i] - yMin) / (yMax - yMin)) * (height / 2)));
+            pontosYPixel[i] = (int) (35 + Math.round(height / 2 - ((pontosY[i] - yMin) / (yMax - yMin)) * (height / 2)));
         }
 
         return new PontosPixel(pontosXPixel, pontosYPixel);
     }
 
+    private JPanel getPanelAtual(){
+        JPanel panel = null;
+        switch (ondaAtual) {
+            case 1 -> panel = view.getJpOnda5();
+            case 2 -> panel = view.getJpOnda4();
+            case 3 -> panel = view.getJpOnda3();
+            case 4 -> panel = view.getJpOnda2();
+            case 5 -> panel = view.getJpOnda1();
+        }
+        return panel;
+    }
+    
     public void trocarN() {
+        JPanel panel = getPanelAtual();        
+        ((OndaPanel) panel).limpar();
+        
+        int ondaAnterior = ondaAtual;
+        
+        Random random = new Random();
+        ondaAtual = random.nextInt((5 - 1) + 1) + 1;
+        
+        if (ondaAtual > ondaAnterior){
+            
+        }else if(ondaAtual < ondaAnterior){
+            
+        }
+        
         if(ondaAtual != 5){
             ondaAtual++;
             tempo = 0;
         }else{
             ondaAtual = 1;
-        }
+        }               
     }
 }
