@@ -69,10 +69,8 @@ public class JanelaSimulacao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulação");
-        setMaximumSize(new java.awt.Dimension(810, 750));
-        setMinimumSize(new java.awt.Dimension(810, 750));
-        setPreferredSize(new java.awt.Dimension(810, 750));
-        setSize(new java.awt.Dimension(810, 750));
+        setResizable(false);
+        setSize(new java.awt.Dimension(838, 732));
 
         jpOnda5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpOnda5.setToolTipText("");
@@ -148,7 +146,7 @@ public class JanelaSimulacao extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(52, 52, 52)
                         .addComponent(jButton2)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,12 +189,12 @@ public class JanelaSimulacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpOnda5.getAccessibleContext().setAccessibleName("");
 
-        setSize(new java.awt.Dimension(824, 757));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

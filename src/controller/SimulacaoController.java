@@ -2,7 +2,6 @@ package controller;
 
 import java.awt.Point;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import model.FuncaoOnda;
@@ -34,23 +33,17 @@ public class SimulacaoController {
     }
   
     public void iniciarAnimacao() {
-        timerAnimacao = new Timer(1000 / fps, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                animacaoOnda();
-                tempo += 2e-16;
-            }
+        timerAnimacao = new Timer(1000 / fps, (ActionEvent e) -> {
+            animacaoOnda();
+            tempo += 2e-16;
         });
         timerAnimacao.start(); // Inicia o timer
         
-        timerFoton = new Timer(2000, new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                Random random = new Random();
-                float ver = random.nextFloat();
-                if(ver > 0.5){
-                    trocarN();
-                }
+        timerFoton = new Timer(3000, (ActionEvent e) -> {
+            Random random = new Random();
+            float ver = random.nextFloat();
+            if(ver > 0.3){
+                trocarN();
             }
         });
         timerFoton.start();
@@ -60,7 +53,7 @@ public class SimulacaoController {
         Pontos pontos;
         pontos = funcao.calcularFuncaoOnda(ondaAtual, tempo);
         PontosPixel pontosPixel;
-        JPanel panel = getPanelAtual();
+        JPanel panel = getPanel(ondaAtual);
         
         pontosPixel = convertToPixels(pontos, panel);
         
@@ -110,9 +103,9 @@ public class SimulacaoController {
         return new PontosPixel(pontosXPixel, pontosYPixel);
     }
 
-    private JPanel getPanelAtual(){
+    private JPanel getPanel(int n){
         JPanel panel = null;
-        switch (ondaAtual) {
+        switch (n) {
             case 1 -> panel = view.getJpOnda5();
             case 2 -> panel = view.getJpOnda4();
             case 3 -> panel = view.getJpOnda3();
@@ -122,14 +115,18 @@ public class SimulacaoController {
         return panel;
     }
     
-    public void trocarN() {
-        JPanel panel = getPanelAtual();        
+    public void trocarN() {        
+        Random random = new Random();
+        int novaOnda;
+        do{
+            novaOnda = random.nextInt(5) + 1;
+        }while(novaOnda == ondaAtual);
+        
+        JPanel panel = getPanel(ondaAtual);        
         ((OndaPanel) panel).limpar();
         
         int ondaAnterior = ondaAtual;
-        
-        Random random = new Random();
-        ondaAtual = random.nextInt((5 - 1) + 1) + 1;
+        ondaAtual = novaOnda;
         
         if (ondaAtual > ondaAnterior){
             
