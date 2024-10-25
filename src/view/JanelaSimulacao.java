@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 public class JanelaSimulacao extends javax.swing.JFrame {
     public JanelaSimulacao() {
         initComponents();
+        addAnimationPanel();
         
         c = new SimulacaoController(this);
     }
@@ -44,7 +45,21 @@ public class JanelaSimulacao extends javax.swing.JFrame {
     public void setJpOnda5(JPanel jpOnda5) {
         this.jpOnda1 = jpOnda5;
     }
-    
+
+    public JPanel getJpAni1() {
+        return jpAni1;
+    }
+    public void setJpAni1(JPanel jpAni1) {
+        this.jpAni1 = jpAni1;
+    }
+
+    public JPanel getJpAni2() {
+        return jpAni2;
+    }
+    public void setJpAni2(JPanel jpAni2) {
+        this.jpAni2 = jpAni2;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,25 +69,44 @@ public class JanelaSimulacao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btIniciar = new javax.swing.JButton();
+        btParar = new javax.swing.JButton();
+        jpOndas = new javax.swing.JPanel();
         jpOnda5 = new OndaPanel();
         jpOnda4 = new OndaPanel();
         jpOnda3 = new OndaPanel();
         jpOnda2 = new OndaPanel();
         jpOnda1 = new OndaPanel();
+        jpAni2 = new FotonPanel();
         lblN5 = new javax.swing.JLabel();
         lblN4 = new javax.swing.JLabel();
         lblN2 = new javax.swing.JLabel();
         lblN3 = new javax.swing.JLabel();
         lblN1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jpAni1 = new FotonPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulação");
         setResizable(false);
-        setSize(new java.awt.Dimension(838, 732));
+        setSize(new java.awt.Dimension(835, 740));
 
-        jpOnda5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btIniciar.setText("Iniciar");
+        btIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btIniciarActionPerformed(evt);
+            }
+        });
+
+        btParar.setText("Parar");
+        btParar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPararActionPerformed(evt);
+            }
+        });
+
+        jpOndas.setBackground(new java.awt.Color(238, 238, 238));
+        jpOndas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         jpOnda5.setToolTipText("");
         jpOnda5.setAlignmentX(1.0F);
         jpOnda5.setAlignmentY(1.0F);
@@ -80,21 +114,53 @@ public class JanelaSimulacao extends javax.swing.JFrame {
         jpOnda5.setPreferredSize(new java.awt.Dimension(400, 131));
         jpOnda5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpOnda4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpOnda4.setPreferredSize(new java.awt.Dimension(400, 131));
         jpOnda4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpOnda3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpOnda3.setPreferredSize(new java.awt.Dimension(400, 131));
         jpOnda3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpOnda2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpOnda2.setPreferredSize(new java.awt.Dimension(400, 131));
         jpOnda2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpOnda1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpOnda1.setPreferredSize(new java.awt.Dimension(400, 131));
         jpOnda1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout jpOndasLayout = new javax.swing.GroupLayout(jpOndas);
+        jpOndas.setLayout(jpOndasLayout);
+        jpOndasLayout.setHorizontalGroup(
+            jpOndasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 412, Short.MAX_VALUE)
+            .addGroup(jpOndasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpOndasLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jpOndasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jpOnda5, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpOnda4, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpOnda3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpOnda2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpOnda1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jpOndasLayout.setVerticalGroup(
+            jpOndasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 691, Short.MAX_VALUE)
+            .addGroup(jpOndasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpOndasLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jpOnda5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jpOnda4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jpOnda3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jpOnda2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jpOnda1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        jpOnda5.getAccessibleContext().setAccessibleName("");
 
         lblN5.setText("N = 5");
 
@@ -106,116 +172,115 @@ public class JanelaSimulacao extends javax.swing.JFrame {
 
         lblN1.setText("N = 1");
 
-        jButton1.setText("Iniciar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jpAni2Layout = new javax.swing.GroupLayout(jpAni2);
+        jpAni2.setLayout(jpAni2Layout);
+        jpAni2Layout.setHorizontalGroup(
+            jpAni2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAni2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpAni2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblN5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblN4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblN3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblN2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblN1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        jpAni2Layout.setVerticalGroup(
+            jpAni2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpAni2Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(lblN5)
+                .addGap(126, 126, 126)
+                .addComponent(lblN4)
+                .addGap(118, 118, 118)
+                .addComponent(lblN3)
+                .addGap(123, 123, 123)
+                .addComponent(lblN2)
+                .addGap(121, 121, 121)
+                .addComponent(lblN1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        jButton2.setText("Trocar N");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jpAni1Layout = new javax.swing.GroupLayout(jpAni1);
+        jpAni1.setLayout(jpAni1Layout);
+        jpAni1Layout.setHorizontalGroup(
+            jpAni1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 198, Short.MAX_VALUE)
+        );
+        jpAni1Layout.setVerticalGroup(
+            jpAni1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jpAni1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jpOnda5, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpOnda4, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpOnda3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpOnda2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpOnda1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblN5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblN4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblN3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblN2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblN1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(103, 103, 103)
+                        .addComponent(btIniciar)
+                        .addGap(76, 76, 76)
+                        .addComponent(btParar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(327, 327, 327)
-                        .addComponent(jButton1)
-                        .addGap(52, 52, 52)
-                        .addComponent(jButton2)))
-                .addContainerGap(181, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jpOndas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpAni2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpOndas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jpOnda5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(lblN5)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jpOnda4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(lblN4)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jpOnda3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(lblN3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpOnda2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(lblN2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jpOnda1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(lblN1)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btIniciar)
+                    .addComponent(btParar))
+                .addContainerGap())
+            .addComponent(jpAni1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpAni2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        jpOnda5.getAccessibleContext().setAccessibleName("");
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarActionPerformed
         c.iniciarAnimacao();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btIniciarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        c.trocarN();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPararActionPerformed
+        c.stopSimulacao();
+    }//GEN-LAST:event_btPararActionPerformed
 
+    private void addAnimationPanel(){
+        FotonPanel fotonPanel = new FotonPanel();
+        
+        fotonPanel.setBounds(0, 0, getWidth(), getHeight());
+        fotonPanel.setOpaque(false);
+        
+        this.getContentPane().setLayout(null);
+        this.add(fotonPanel);
+        
+        this.repaint();
+    }
 
     private final SimulacaoController c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btIniciar;
+    private javax.swing.JButton btParar;
+    private javax.swing.JPanel jpAni1;
+    private javax.swing.JPanel jpAni2;
     private javax.swing.JPanel jpOnda1;
     private javax.swing.JPanel jpOnda2;
     private javax.swing.JPanel jpOnda3;
     private javax.swing.JPanel jpOnda4;
     private javax.swing.JPanel jpOnda5;
+    private javax.swing.JPanel jpOndas;
     private javax.swing.JLabel lblN1;
     private javax.swing.JLabel lblN2;
     private javax.swing.JLabel lblN3;
