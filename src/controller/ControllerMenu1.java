@@ -26,7 +26,7 @@ public class ControllerMenu1 {
         String larguraStr = menu1.getTextLargura().getText();
         double largura = Double.parseDouble(larguraStr);
         String proInicialStr = menu1.getTextProbabiliadeA().getText();
-        double ProInicial = Double.parseDouble(proInicialStr);
+        double proInicial = Double.parseDouble(proInicialStr);
         String proFinalStr= menu1.getTextProbabilidadeB().getText();
         double proFinal = Double.parseDouble(proFinalStr);
         double mProton = 1.67e-27;
@@ -34,7 +34,7 @@ public class ControllerMenu1 {
         ConfinarParticula particula = new ConfinarParticula(nInicial, largura,
                                            mProton, nFinal);
         
-        // Definindo a funç
+        // Definindo a função de onda de cada nível
         String funcaoOndaNi = particula.funcaoOnda(largura, nInicial);
         String funcaoOndaNf = particula.funcaoOnda(largura, nFinal);
         dadosParticula.getJlFuncaoOndaNi().setText(funcaoOndaNi);
@@ -45,13 +45,16 @@ public class ControllerMenu1 {
         String energiaNfJStr = particula.energiaJ(nFinal, mProton, largura);
         String energiaNiEvStr = particula.energiaEv(nInicial, mProton, largura);
         String energiaNfEvStr = particula.energiaEv(nFinal, mProton, largura);
-        //Separando valores de nergia em J para usar em outras contas.
+        //Separando valores de nergia em J e Ev para usar em outras contas.
         double enegiaNiJ = Double.parseDouble(energiaNiJStr);
         double energiaNfJ = Double.parseDouble(energiaNfJStr);
+        double enegiaNiEv = Double.parseDouble(energiaNiEvStr);
+        double energiaNfEv = Double.parseDouble(energiaNfEvStr);
         dadosParticula.getJlEnergiaNiJ().setText(energiaNiJStr );
         dadosParticula.getJlEnergiaNfJ().setText(energiaNfJStr);
         dadosParticula.getJlEnergiaNiEv().setText(energiaNiEvStr);
         dadosParticula.getJlEnergiaNfEv().setText(energiaNfEvStr);
+        
         
         //Definindo a velocidade da partícula em cada nível
         String velocidadeNiStr = particula.velocidadeProton(enegiaNiJ, mProton);
@@ -65,15 +68,44 @@ public class ControllerMenu1 {
         String compriBroNiStr = particula.comprimentoDeBroglie
                                         (mProton, velocidadeNi);
         String compriBroNfStr = particula.comprimentoDeBroglie
-                                        (mProton, velocidadeNi);
+                                        (mProton, velocidadeNf);
         dadosParticula.getJlCompriBroNi().setText(compriBroNiStr);
         dadosParticula.getJlCompriBroNf().setText(compriBroNfStr);
         
+        //Definindo comprimento de onda, frequencia  e energia do foton emitido.
+        String energiaFotonEvStr = particula.energiaFotonAbsorvido(energiaNfEv,
+                                                                enegiaNiEv);
+        String energiaFotonJStr = particula.energiaFotonAbsorvido(energiaNfJ,
+                                                                enegiaNiJ);
+        // passando para double valores que vou utilizar.
+        double energiaFotonEv = Double.parseDouble(energiaFotonEvStr);
+        double energiaFotonJ = Double.parseDouble(energiaFotonJStr);
+        String frequenciaStr = particula.frequenciaFoton(energiaFotonJ);
+        String comprimento = particula.comprimentoDeOndaFoton(energiaFotonEv);
+        dadosParticula.getJlFrequenciaOnda().setText(frequenciaStr);
+        dadosParticula.getJlEnergiaFoton().setText(energiaFotonEvStr);
+        dadosParticula.getJlCompriFoton().setText(comprimento);
+        
+        //Calculando a probabilidade em cada nível
+        Double ProbaNin = particula.calcularProbabilidade(proInicial, proFinal,
+                                                          nInicial);
+        String ProbaNinStr = String.valueOf(ProbaNin);
+        Double ProbaNfi = particula.calcularProbabilidade(proInicial, proFinal,
+                                                          nFinal);
+        String ProbaNfiStr = String.valueOf(ProbaNfi);
+        dadosParticula.getJlProNi().setText(ProbaNinStr);
+        dadosParticula.getJlProNf().setText(ProbaNfiStr);
+        
+    
         
         menu1.setVisible(false);
         dadosParticula.setVisible(true);  
         
     }
     
+    public void voltarMenu(){
+        dadosParticula.setVisible(false);
+        menu1.setVisible(true);
+    }
     
 }
