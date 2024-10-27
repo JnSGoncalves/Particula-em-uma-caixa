@@ -1,10 +1,10 @@
 package simulation.main;
 
-import javax.swing.SwingUtilities;
-import simulation.main.teste.AnimatedWaveFunction;
+import view.Entrada;
 
 public class ParticulaEmUmaCaixa {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(AnimatedWaveFunction::new);
+        Entrada entrada = new Entrada();
+        entrada.setVisible(true);
     }
 }
