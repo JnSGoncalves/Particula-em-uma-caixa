@@ -16,8 +16,8 @@ import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class Graficos {
-
-    // Método para criar o gráfico da função de onda
+    
+    // Método para criar o gráfico da função de onda de Nincial
     public JPanel graficoFuncaoOnda(double largura, double n){
         // Cria uma nova série de dados para a função de onda
         XYSeries series = new XYSeries("Função de Onda para N = " + n);
@@ -83,8 +83,7 @@ public class Graficos {
         // Cria o gráfico da densidade de probabilidade com título e rótulos dos eixos
         JFreeChart chart = ChartFactory.createXYLineChart(
                 // título do gráfico
-                "Densidade de Probabilidade para nInicial = " + 
-                                                            (int) Math.floor(n), 
+                "Densidade de Probabilidade para N = " + (int) Math.floor(n), 
                 "X(Ȧ)[m]", // rótulo do eixo X
                 "|Ψ|²", // rótulo do eixo Y
                 dataset, // dados do gráfico
@@ -108,43 +107,44 @@ public class Graficos {
         chartPanel.setPreferredSize(new Dimension(600, 400)); // define o tamanho do painel
         return chartPanel;
     }
+    
 
-    public static void main(String[] args) {
-        // Configura o scanner para entrada de dados pelo usuário
-        Scanner scanner = new Scanner(System.in);
-
-        // Recebe a largura da caixa e o valor de nInicial do usuário
-        System.out.print("Digite o valor de largura da caixa (M): ");
-        double largura = scanner.nextDouble();
-        System.out.print("Digite o valor de n: ");
-        double nInicial = scanner.nextDouble();
-
-        // Configura a janela principal que exibirá os gráficos
-        JFrame frame = new JFrame("Gráficos de Função de Onda e Probabilidade");
-        Graficos grafico = new Graficos();
-        frame.setLayout(new BorderLayout());
-
-        // Cria um painel para os gráficos e os adiciona 
-        //em um layout de 2 linhas e 1 coluna
-        JPanel panelGraficos = new JPanel(new GridLayout(2, 1));
-        panelGraficos.add(grafico.graficoFuncaoOnda(largura, nInicial));
-        panelGraficos.add(grafico.graficoProbabilidade(largura, nInicial));
-        frame.add(panelGraficos, BorderLayout.CENTER);
-
-        // Adiciona um botão "Sair" que encerra a aplicação
-        JButton sairButton = new JButton("Sair");
-        sairButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0); // encerra a aplicação ao clicar
-            }
-        });
-        frame.add(sairButton, BorderLayout.SOUTH);
-
-        // Configura a janela de exibição
-        frame.pack(); // ajusta o tamanho da janela
-        // fecha a janela ao sair
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true); // torna a janela visível
-    }
+//    public static void main(String[] args) {
+//        // Configura o scanner para entrada de dados pelo usuário
+//        Scanner scanner = new Scanner(System.in);
+//
+//        // Recebe a largura da caixa e o valor de nInicial do usuário
+//        System.out.print("Digite o valor de largura da caixa (M): ");
+//        double largura = scanner.nextDouble();
+//        System.out.print("Digite o valor de n: ");
+//        double nInicial = scanner.nextDouble();
+//
+//        // Configura a janela principal que exibirá os gráficos
+//        JFrame frame = new JFrame("Gráficos de Função de Onda e Probabilidade");
+//        Graficos grafico = new Graficos();
+//        frame.setLayout(new BorderLayout());
+//
+//        // Cria um painel para os gráficos e os adiciona 
+//        //em um layout de 2 linhas e 1 coluna
+//        JPanel panelGraficos = new JPanel(new GridLayout(2, 1));
+//        panelGraficos.add(grafico.graficoFuncaoOnda(largura, nInicial));
+//        panelGraficos.add(grafico.graficoProbabilidade(largura, nInicial));
+//        frame.add(panelGraficos, BorderLayout.CENTER);
+//
+//        // Adiciona um botão "Sair" que encerra a aplicação
+//        JButton sairButton = new JButton("Sair");
+//        sairButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.exit(0); // encerra a aplicação ao clicar
+//            }
+//        });
+//        frame.add(sairButton, BorderLayout.SOUTH);
+//
+//        // Configura a janela de exibição
+//        frame.pack(); // ajusta o tamanho da janela
+//        // fecha a janela ao sair
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setVisible(true); // torna a janela visível
+//    }
 }

@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
+
 
 import controller.ControllerMenu1;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author wallace
- */
+
 public class Menu1 extends javax.swing.JFrame {
 
     /**
@@ -370,12 +364,9 @@ public class Menu1 extends javax.swing.JFrame {
     }//GEN-LAST:event_buProton1ActionPerformed
 
     private void buProton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buProton2ActionPerformed
-        // TODO add your handling code here:
+        c.criaGraficos();
     }//GEN-LAST:event_buProton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -408,6 +399,7 @@ public class Menu1 extends javax.swing.JFrame {
 //            }
 //        });
 //    }
+    
     private ControllerMenu1 c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buProton;

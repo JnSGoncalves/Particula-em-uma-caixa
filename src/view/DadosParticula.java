@@ -6,11 +6,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
+
+        
+
 public class DadosParticula extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DadosParticula
-     */
+    
     public DadosParticula() {
         initComponents();
     }
@@ -1017,7 +1018,12 @@ public class DadosParticula extends javax.swing.JFrame {
     }//GEN-LAST:event_buFunProNiActionPerformed
 
     private void buMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buMenuActionPerformed
-        // TODO add your handling code here:
+        Menu1 menu = new Menu1();
+        menu.setVisible(true);
+    
+        // Fecha a janela atual
+        this.dispose();
+        
     }//GEN-LAST:event_buMenuActionPerformed
 
     /**
@@ -1054,7 +1060,7 @@ public class DadosParticula extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    private Menu1 menu;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buFunProNf;
     private javax.swing.JButton buFunProNi;

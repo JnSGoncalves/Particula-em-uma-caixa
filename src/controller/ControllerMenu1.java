@@ -1,5 +1,13 @@
 package controller;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import model.ConfinarParticula;
+import model.Graficos;
 import view.DadosParticula;
 import view.Menu1;
 
@@ -8,6 +16,7 @@ public class ControllerMenu1 {
     private ConfinarParticula particula;
     private DadosParticula dadosParticula;
     private Menu1 menu1;
+    private Graficos grafico;
 
     public ControllerMenu1(Menu1 menu1){
         this.menu1 = menu1;
@@ -181,7 +190,42 @@ public class ControllerMenu1 {
         
         menu1.setVisible(false);
         dadosParticula.setVisible(true);  
+    }
+    
+    
+    public void criaGraficos(){
+        String nInicialStr = menu1.getTextNInicial().getText();
+        double nInicial = Double.parseDouble(nInicialStr);
+        String nFinalStr = menu1.getTextNFinal().getText();
+        double nFinal = Double.parseDouble(nFinalStr);
+        String larguraStr = menu1.getTextLargura().getText();
+        double largura = Double.parseDouble(larguraStr);
+        String proInicialStr = menu1.getTextProbabiliadeA().getText();
+        double proInicial = Double.parseDouble(proInicialStr);
+        String proFinalStr= menu1.getTextProbabilidadeB().getText();
+        double proFinal = Double.parseDouble(proFinalStr);
         
+        // Configura a janela principal que exibirá os gráficos
+        JFrame frame = new JFrame("Gráficos de Função de Onda e Probabilidade");
+        Graficos grafico = new Graficos();
+        frame.setLayout(new BorderLayout());
+        
+        // Cria um painel para os gráficos e os adiciona 
+        //em um layout de 4 linhas e 1 coluna
+        JPanel panelGraficos = new JPanel(new GridLayout(2, 2));
+        panelGraficos.add(grafico.graficoFuncaoOnda(largura, nInicial));
+        panelGraficos.add(grafico.graficoFuncaoOnda(largura, nFinal));
+        panelGraficos.add(grafico.graficoProbabilidade(largura, nInicial));
+        panelGraficos.add(grafico.graficoProbabilidade(largura, nFinal));
+        frame.add(panelGraficos, BorderLayout.CENTER);
+        
+        // Configura a janela de exibição
+        frame.pack(); // ajusta o tamanho da janela
+        // fecha a janela ao sair
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true); // torna a janela visível
+        // fecha apenas a janela
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
     }
     
     
