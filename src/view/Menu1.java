@@ -159,12 +159,14 @@ public class Menu1 extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         buProton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel1.setText("Largura da caixa (L):");
 
+        buProton.setFont(new java.awt.Font("Liberation Serif", 1, 15)); // NOI18N
         buProton.setText("Confinar um protón");
         buProton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +174,7 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
+        buProton1.setFont(new java.awt.Font("Liberation Serif", 1, 15)); // NOI18N
         buProton1.setText("Confinar um elétron");
         buProton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +188,7 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 3, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel2.setText("N Inicial:");
 
         textNInicial.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +197,7 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Liberation Sans", 3, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel3.setText("N Final:");
 
         textNFinal.addActionListener(new java.awt.event.ActionListener() {
@@ -203,13 +206,13 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Nimbus Sans", 3, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Liberation Serif", 1, 24)); // NOI18N
         jLabel4.setText("PROBABILIDADE");
 
-        jLabel5.setFont(new java.awt.Font("Nimbus Sans", 3, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Liberation Serif", 1, 24)); // NOI18N
         jLabel5.setText("DADOS DA CAIXA");
 
-        jLabel6.setFont(new java.awt.Font("Liberation Sans", 3, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel6.setText("A:");
 
         textProbabiliadeA.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +221,7 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Liberation Sans", 3, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel7.setText("B:");
 
         textProbabilidadeB.addActionListener(new java.awt.event.ActionListener() {
@@ -227,18 +230,25 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel8.setText("[m]");
 
+        jLabel9.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel9.setText("[m]");
 
+        jLabel10.setFont(new java.awt.Font("Liberation Serif", 1, 15)); // NOI18N
         jLabel10.setText("[m]");
 
+        buProton2.setFont(new java.awt.Font("Liberation Serif", 1, 15)); // NOI18N
         buProton2.setText("Gráficos");
         buProton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buProton2ActionPerformed(evt);
             }
         });
+
+        jLabel11.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
+        jLabel11.setText("Obs: Intervalo [0, B]");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,29 +276,33 @@ public class Menu1 extends javax.swing.JFrame {
                                         .addComponent(textLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(textProbabiliadeA, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textProbabilidadeB, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(textProbabiliadeA, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textProbabilidadeB, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10))))))
                         .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buProton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buProton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buProton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(243, 243, 243))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(buProton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(buProton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buProton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,14 +336,16 @@ public class Menu1 extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(textProbabilidadeB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7))
-                            .addComponent(jLabel10))))
-                .addGap(50, 50, 50)
-                .addComponent(buProton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buProton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buProton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(buProton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buProton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buProton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -407,6 +423,7 @@ public class Menu1 extends javax.swing.JFrame {
     private javax.swing.JButton buProton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

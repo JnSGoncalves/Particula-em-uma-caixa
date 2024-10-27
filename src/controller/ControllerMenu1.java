@@ -18,10 +18,23 @@ public class ControllerMenu1 {
     private Menu1 menu1;
     private Graficos grafico;
 
+       
     public ControllerMenu1(Menu1 menu1){
         this.menu1 = menu1;
         this.dadosParticula = new DadosParticula();
     }
+     // Método para verificar os dados da probabilidade
+    public boolean verificaProbabilidade(double a, double b, double largura) {
+    if (a < 0 || b > largura || a > b) {
+        // Exibe uma mensagem informativa
+        javax.swing.JOptionPane.showMessageDialog(menu1, 
+                "Não é possível confirmar a partícula. "
+                + "Os limites devem estar dentro do intervalo de [0, " 
+                        + largura + "].");
+        return false; // Retorna false se a verificação falhar
+    }
+        return true; // Retorna true se a verificação passar
+    }  
     
     public void dadosProton(){
         String nInicialStr = menu1.getTextNInicial().getText();
@@ -35,6 +48,7 @@ public class ControllerMenu1 {
         String proFinalStr= menu1.getTextProbabilidadeB().getText();
         double proFinal = Double.parseDouble(proFinalStr);
         double mProton = 1.67e-27;
+        
         
         ConfinarParticula particula = new ConfinarParticula(nInicial, largura,
                                            mProton, nFinal);
@@ -101,10 +115,14 @@ public class ControllerMenu1 {
         dadosParticula.getJlProNi().setText(ProbaNinStr);
         dadosParticula.getJlProNf().setText(ProbaNfiStr);
         
-    
+        if (!verificaProbabilidade(proInicial, proFinal, largura)) {
+            
+        }else {
+            // A probabilidade é válida, prossegue com a lógica
+            menu1.setVisible(false);
+            dadosParticula.setVisible(true);  
+        }
         
-        menu1.setVisible(false);
-        dadosParticula.setVisible(true);  
         
     }
     
@@ -186,10 +204,16 @@ public class ControllerMenu1 {
         dadosParticula.getJlProNi().setText(ProbaNinStr);
         dadosParticula.getJlProNf().setText(ProbaNfiStr);
         
+        if (!verificaProbabilidade(proInicial, proFinal, largura)) {
+            
+        }else {
+            // A probabilidade é válida, prossegue com a lógica
+            menu1.setVisible(false);
+            dadosParticula.setVisible(true);  
+        }
+        
     
         
-        menu1.setVisible(false);
-        dadosParticula.setVisible(true);  
     }
     
     
@@ -205,7 +229,10 @@ public class ControllerMenu1 {
         String proFinalStr= menu1.getTextProbabilidadeB().getText();
         double proFinal = Double.parseDouble(proFinalStr);
         
-        // Configura a janela principal que exibirá os gráficos
+        if (!verificaProbabilidade(proInicial, proFinal, largura)) {
+            
+        }else {
+             // Configura a janela principal que exibirá os gráficos
         JFrame frame = new JFrame("Gráficos de Função de Onda e Probabilidade");
         Graficos grafico = new Graficos();
         frame.setLayout(new BorderLayout());
@@ -226,6 +253,9 @@ public class ControllerMenu1 {
         frame.setVisible(true); // torna a janela visível
         // fecha apenas a janela
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        }
+        
+        
     }
     
     
