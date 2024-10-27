@@ -2,10 +2,8 @@ package controller;
 import model.ConfinarParticula;
 import view.DadosParticula;
 import view.Menu1;
-/**
- *
- * @author wallace
- */
+
+
 public class ControllerMenu1 {
     private ConfinarParticula particula;
     private DadosParticula dadosParticula;
@@ -15,8 +13,6 @@ public class ControllerMenu1 {
         this.menu1 = menu1;
         this.dadosParticula = new DadosParticula();
     }
-    
-    
     
     public void dadosProton(){
         String nInicialStr = menu1.getTextNInicial().getText();
