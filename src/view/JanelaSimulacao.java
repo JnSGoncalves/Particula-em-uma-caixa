@@ -60,6 +60,10 @@ public class JanelaSimulacao extends javax.swing.JFrame {
         this.jpAni2 = jpAni2;
     }
 
+    public SimulacaoController getC(){
+        return c;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,7 +89,6 @@ public class JanelaSimulacao extends javax.swing.JFrame {
         lblN1 = new javax.swing.JLabel();
         jpAni1 = new FotonPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulação");
         setResizable(false);
         setSize(new java.awt.Dimension(835, 740));

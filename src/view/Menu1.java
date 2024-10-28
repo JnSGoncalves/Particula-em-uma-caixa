@@ -161,8 +161,6 @@ public class Menu1 extends javax.swing.JFrame {
         buProton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
         jLabel1.setText("Largura da caixa (L):");
 
