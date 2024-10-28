@@ -167,7 +167,7 @@ public class Menu1 extends javax.swing.JFrame {
         jLabel1.setText("Largura da caixa (L):");
 
         buProton.setFont(new java.awt.Font("Liberation Serif", 1, 15)); // NOI18N
-        buProton.setText("Confinar um protón");
+        buProton.setText("Confinar um Próton");
         buProton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buProtonActionPerformed(evt);

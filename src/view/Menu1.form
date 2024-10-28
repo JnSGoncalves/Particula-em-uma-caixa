@@ -163,7 +163,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Liberation Serif" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Confinar um prot&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Confinar um Pr&#xf3;ton"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buProtonActionPerformed"/>
