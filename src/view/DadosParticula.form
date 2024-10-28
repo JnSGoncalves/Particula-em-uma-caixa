@@ -94,7 +94,7 @@
                           </Group>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace pref="91" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -113,7 +113,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="149" max="32767" attributes="0"/>
+                              <EmptySpace pref="185" max="32767" attributes="0"/>
                               <Component id="buMenu" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -545,7 +545,7 @@
     <Component class="javax.swing.JButton" name="buMenu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Liberation Serif" size="24" style="3"/>
+          <Font name="Liberation Serif" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Menu"/>
       </Properties>

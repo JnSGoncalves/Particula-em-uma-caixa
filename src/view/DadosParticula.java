@@ -568,7 +568,7 @@ public class DadosParticula extends javax.swing.JFrame {
 
         jLabel36.setText("N final:");
 
-        buMenu.setFont(new java.awt.Font("Liberation Serif", 3, 24)); // NOI18N
+        buMenu.setFont(new java.awt.Font("Liberation Serif", 1, 24)); // NOI18N
         buMenu.setText("Menu");
         buMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -685,7 +685,7 @@ public class DadosParticula extends javax.swing.JFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel12)))
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel34)
                     .addGroup(layout.createSequentialGroup()
@@ -700,7 +700,7 @@ public class DadosParticula extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                                 .addComponent(buMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel32)))
                     .addComponent(jLabel29)

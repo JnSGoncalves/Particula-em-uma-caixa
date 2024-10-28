@@ -8,6 +8,5 @@ public class Teste {
         Menu1 janela = new Menu1();
         janela.setVisible(true);
     }
-    
 }
 
