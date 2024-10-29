@@ -246,7 +246,7 @@ public class Menu1 extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Liberation Serif", 1, 14)); // NOI18N
-        jLabel11.setText("Obs: Intervalo [0, B]");
+        jLabel11.setText("Obs: Intervalo [0, L]");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
