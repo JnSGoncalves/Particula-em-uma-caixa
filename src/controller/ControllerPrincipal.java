@@ -1,6 +1,7 @@
 package controller;
 
 import view.Entrada;
+import view.Informacoes;
 import view.JPrincipal;
 import view.JanelaSimulacao;
 import view.Menu1;
@@ -10,6 +11,7 @@ public class ControllerPrincipal {
     JanelaSimulacao simulacao;
     Menu1 probabilidade;
     Entrada parametros;    
+    Informacoes informacoes;
 
     public ControllerPrincipal() {
         view = new JPrincipal(this);
@@ -18,6 +20,7 @@ public class ControllerPrincipal {
         simulacao = new JanelaSimulacao();
         probabilidade = new Menu1();
         parametros = new Entrada();
+        informacoes = new Informacoes();
 //        parametros.setVisible(false);
     }
     
@@ -31,5 +34,9 @@ public class ControllerPrincipal {
     
     public void openParametros(){
         parametros.setVisible(true);
+    }
+    
+    public void openInformacoes(){
+        informacoes.setVisible(true);
     }
 }

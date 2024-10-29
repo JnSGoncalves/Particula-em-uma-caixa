@@ -56,6 +56,11 @@ public class JPrincipal extends javax.swing.JFrame {
         btInfo.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         btInfo.setForeground(new java.awt.Color(0, 0, 0));
         btInfo.setText("Informações");
+        btInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btInfoActionPerformed(evt);
+            }
+        });
 
         btParametros.setBackground(new java.awt.Color(204, 255, 255));
         btParametros.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
@@ -126,6 +131,11 @@ public class JPrincipal extends javax.swing.JFrame {
     private void btProbabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProbabilidadeActionPerformed
         c.openProbabilidade();
     }//GEN-LAST:event_btProbabilidadeActionPerformed
+
+    private void btInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInfoActionPerformed
+        // TODO add your handling code here:
+        c.openInformacoes();
+    }//GEN-LAST:event_btInfoActionPerformed
 
     
     ControllerPrincipal c;
