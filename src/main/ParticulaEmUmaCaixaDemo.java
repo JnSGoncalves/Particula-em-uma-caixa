@@ -13,6 +13,5 @@ public class ParticulaEmUmaCaixaDemo {
 //        JanelaSimulacao simulacao = new JanelaSimulacao();
 //        simulacao.setVisible(true);
         ControllerPrincipal controller = new ControllerPrincipal();
-
     }
 }
