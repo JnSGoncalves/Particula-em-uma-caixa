@@ -98,13 +98,13 @@ public class Entrada extends javax.swing.JFrame {
 
         jLabel10.setText("Probabilidade ");
 
-        jLabel11.setText("m");
+        jLabel11.setText("[m]");
 
-        jLabel12.setText("m");
+        jLabel12.setText("[m]");
 
-        jLabel13.setText("m");
+        jLabel13.setText("[m]");
 
-        jLabel15.setText("*dx");
+        jLabel15.setText("[*dx]");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

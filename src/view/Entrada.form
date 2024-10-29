@@ -243,22 +243,22 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="m"/>
+        <Property name="text" type="java.lang.String" value="[m]"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="m"/>
+        <Property name="text" type="java.lang.String" value="[m]"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="m"/>
+        <Property name="text" type="java.lang.String" value="[m]"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel15">
       <Properties>
-        <Property name="text" type="java.lang.String" value="*dx"/>
+        <Property name="text" type="java.lang.String" value="[*dx]"/>
       </Properties>
     </Component>
   </SubComponents>
