@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.ConfinarParticula;
 import model.Graficos;
@@ -37,6 +38,7 @@ public class ControllerMenu1 {
     }  
     
     public void dadosProton(){
+        try{
         String nInicialStr = menu1.getTextNInicial().getText();
         double nInicial = Double.parseDouble(nInicialStr);
         String nFinalStr = menu1.getTextNFinal().getText();
@@ -121,12 +123,20 @@ public class ControllerMenu1 {
             // A probabilidade é válida, prossegue com a lógica
             menu1.setVisible(false);
             dadosParticula.setVisible(true);  
-        }
+        }}
+        
+        catch (Exception e) {
+            System.out.println(e);
+        JOptionPane.showMessageDialog(menu1, 
+                "Por favor, preencha todos os campos com valores válidos.",
+                "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
+        } 
         
         
     }
     
     public void dadosEletron(){
+        try{
         String nInicialStr = menu1.getTextNInicial().getText();
         double nInicial = Double.parseDouble(nInicialStr);
         String nFinalStr = menu1.getTextNFinal().getText();
@@ -210,7 +220,13 @@ public class ControllerMenu1 {
             // A probabilidade é válida, prossegue com a lógica
             menu1.setVisible(false);
             dadosParticula.setVisible(true);  
-        }
+        }}
+        catch (Exception e) {
+            System.out.println(e);
+        JOptionPane.showMessageDialog(menu1, 
+                "Por favor, preencha todos os campos com valores válidos.",
+                "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
+        } 
         
     
         
@@ -218,6 +234,7 @@ public class ControllerMenu1 {
     
     
     public void criaGraficos(){
+        try{
         String nInicialStr = menu1.getTextNInicial().getText();
         double nInicial = Double.parseDouble(nInicialStr);
         String nFinalStr = menu1.getTextNFinal().getText();
@@ -253,11 +270,13 @@ public class ControllerMenu1 {
         frame.setVisible(true); // torna a janela visível
         // fecha apenas a janela
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        }  
         }
-        
-        
-    }
-    
-    
-    
+        catch (Exception e) {
+            System.out.println(e);
+        JOptionPane.showMessageDialog(menu1, 
+                "Por favor, preencha todos os campos com valores válidos.",
+                "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
+        } 
+}
 }
