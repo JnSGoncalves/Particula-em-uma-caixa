@@ -1,9 +1,6 @@
 package controller;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -14,15 +11,13 @@ import view.Menu1;
 
 
 public class ControllerMenu1 {
-    private ConfinarParticula particula;
     private DadosParticula dadosParticula;
     private Menu1 menu1;
-    private Graficos grafico;
 
        
     public ControllerMenu1(Menu1 menu1){
         this.menu1 = menu1;
-        this.dadosParticula = new DadosParticula();
+        this.dadosParticula = new DadosParticula(this);
     }
      // Método para verificar os dados da probabilidade
     public boolean verificaProbabilidade(double a, double b, double largura) {
@@ -36,6 +31,11 @@ public class ControllerMenu1 {
     }
         return true; // Retorna true se a verificação passar
     }  
+    
+    public void fecharDados(){
+        dadosParticula.dispose();
+        menu1.setVisible(true);
+    }
     
     public void dadosProton(){
         try{

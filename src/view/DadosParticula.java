@@ -1,19 +1,20 @@
 package view;
 
+import controller.ControllerMenu1;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 
 
         
 
 public class DadosParticula extends javax.swing.JFrame {
+    ControllerMenu1 c;
 
     
-    public DadosParticula() {
+    public DadosParticula(ControllerMenu1 c) {
         initComponents();
+        this.c = c;
     }
 
     public void setBuMenu(JButton buMenu) {
@@ -879,11 +880,7 @@ public class DadosParticula extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buMenuActionPerformed
-        Menu1 menu = new Menu1();
-        menu.setVisible(true);
-    
-        // Fecha a janela atual
-        this.dispose();
+        c.fecharDados();
         
     }//GEN-LAST:event_buMenuActionPerformed
 
